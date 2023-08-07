@@ -1,0 +1,612 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+    .information {
+
+        background: #071952;
+        margin-top: 120px;
+    }
+
+
+    .smokewhite {
+        color: whitesmoke;
+    }
+
+    .line:hover {
+
+        text-decoration: underline;
+        text-decoration-color: whitesmoke;
+        text-decoration-thickness: 1.5px;
+        width: fit-content;
+    }
+
+
+
+    .shaking-icon:hover i {
+        animation: shake 0.8s infinite;
+    }
+
+
+
+    @keyframes shake {
+
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-5px);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
+
+        75% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+
+
+    }
+
+
+    .carousel-brand {
+        background-color: #35a29f;
+    }
+
+    .user-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #35a29f;
+    }
+
+    .owl-carousel.owl-loaded {
+        opacity: 0.70;
+    }
+
+    .owl-item {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .owl-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .owl-img:hover {
+        scale: 1.2;
+    }
+
+    .carousel-context {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .owl-prev,
+    .owl-next {
+        display: flex;
+        position: absolute;
+        transform: scale(4) !important;
+        color: #071952 !important;
+    }
+
+    .owl-prev,
+    .owl-next:hover {
+        background: transparent !important;
+    }
+
+    .owl-prev {
+        top: 115px;
+        left: 10px;
+    }
+
+    .owl-next {
+        top: 120px;
+        right: 10px;
+    }
+
+    .owl-carousel .owl-nav.disabled {
+        display: block;
+    }
+
+    .main_right a,
+    p,
+    li {
+        font-size: 12px;
+    }
+
+    .main_right ul {
+        list-style: none;
+    }
+</style>
+
+{% endblock css %}
+
+
+{% block main %}
+
+<!-- owl carousel -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col ">
+            <div style="border: 1px solid #071952; border-radius: 5px;">
+
+                <div class="carousel-brand ps-2 py-1">
+                    <h4 class="text-dark">TembelBaykuş.net - </h4>
+                </div>
+
+                <div class="owl-carousel owl-theme py-4 px-5">
+                    <a href="">
+                        <div class="item  ">
+                            <img class="owl-img" src="digital.jpg" alt="">
+                            <div class="carousel-context text-dark px-2">
+                                <div class="content-text">
+                                    <h5>popüler başlık</h5>
+                                    <hr class="m-0 ">
+                                    <h6>yorum</h6>
+                                </div>
+                                <div class="text-under d-flex justify-content-between align-items-center">
+                                    <div class="d-flex">
+                                        <div class="user-img">
+                                            <img src="baykus.png" alt="">
+                                        </div>
+                                        <small class="d-flex justify-content-center align-items-center">username</small>
+                                    </div>
+                                    <div class="message">
+                                        <i class="far fa-comments">2</i>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="forum-istatistik mt-5">
+        <!-- Forum İstatistik Tabs navs -->
+        <ul class="nav nav-tabs mb-3" id="ex-with-icons" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="ex-with-icons-tab-1" data-mdb-toggle="tab" href="#ex-with-icons-tabs-1"
+                    role="tab" aria-controls="ex-with-icons-tabs-1" aria-selected="true">
+                    <i class="far fa-comment-dots me-2"></i>
+                    YENİ MESAJ
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex-with-icons-tab-2" data-mdb-toggle="tab" href="#ex-with-icons-tabs-2"
+                    role="tab" aria-controls="ex-with-icons-tabs-2" aria-selected="false">
+                    <i class="far fa-comments me-2"></i>
+                    YENİ KONULAR
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex-with-icons-tab-3" data-mdb-toggle="tab" href="#ex-with-icons-tabs-3"
+                    role="tab" aria-controls="ex-with-icons-tabs-3" aria-selected="false">
+                    <i class="fas fa-person me-2"></i>
+                    KONU DIŞI
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex-with-icons-tab-3" data-mdb-toggle="tab" href="#ex-with-icons-tabs-4"
+                    role="tab" aria-controls="ex-with-icons-tabs-4" aria-selected="false">
+                    <i class="fas fa-poo me-2"></i>
+                    POPÜLER KONULAR
+                </a>
+            </li>
+        </ul>
+        <!-- Tabs navs -->
+
+        <!-- Forum İstatistik Tabs content -->
+        <div class="tab-content" id="ex-with-icons-content">
+            <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel"
+                aria-labelledby="ex-with-icons-tab-1">
+                <!--  -->
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Konu</th>
+                            <th>Forumu</th>
+                            <th>Cevap</th>
+                            <th>Hit</th>
+                            <th>Gönderim</th>
+                            <th>Son Yazan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                        style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p><a href="#" data-mdb-toggle="tooltip" title="Hi! I'm tooltip">valorantta bu
+                                                hatayı alıyorum yardım</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Forumu">PC oyunları</a></p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Cevap">4</p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Hit">4</p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Gönderim">Az Önce</a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Son Yazan">Yumurtacii</a></p>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                        style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p><a href="#" data-mdb-toggle="tooltip" title="Hi! I'm tooltip">valorantta bu
+                                                hatayı alıyorum yardım</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Forumu">PC oyunları</a></p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Cevap">4</p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Hit">4</p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Gönderim">Az Önce</a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Son Yazan">Yumurtacii</a></p>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                        style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p><a href="#" data-mdb-toggle="tooltip" title="Hi! I'm tooltip">valorantta bu
+                                                hatayı alıyorum yardım</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Forumu">PC oyunları</a></p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Cevap">4</p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Hit">4</p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Gönderim">Az Önce</a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Son Yazan">Yumurtacii</a></p>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                        style="width: 45px; height: 45px" class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p><a href="#" data-mdb-toggle="tooltip" title="Hi! I'm tooltip">valorantta bu
+                                                hatayı alıyorum yardım</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Forumu">PC oyunları</a></p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Cevap">4</p>
+                            </td>
+                            <td>
+                                <p data-mdb-toggle="tooltip" title="Hit">4</p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Gönderim">Az Önce</a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" data-mdb-toggle="tooltip" title="Son Yazan">Yumurtacii</a></p>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+                Tab 2 content
+            </div>
+            <div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3">
+                Tab 3 content
+            </div>
+            <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
+                Tab 4 content
+            </div>
+        </div>
+        <!-- Tabs content -->
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-9">
+            <div class="forumlar">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Oyunlar</h4>
+                        <small>Oyunlar Hakkında Herşey!!</small>
+                    </div>
+                </div>
+                <div class="card games mt-3">
+                    <div class="card-body">
+                        <div>
+                            <a href="" class="me-3"><i class="fas fa-headset me-1"></i>Online Oyunlar</a>
+                            <a href="" class="me-3"><i class="fas fa-table-tennis-paddle-ball me-1"></i>Eşli Oyunlar</a>
+                            <a href="" class="me-3"><i class="fas fa-puzzle-piece me-1"></i>Tek Kişilik Oyunlar</a>
+                            <a href="" class="me-3"><i class="fas fa-gamepad me-1"></i>PvP Serverlar</a>
+                            <a href="" class="me-3"><i class="fab fa-fantasy-flight-games me-1"></i>MOBA Oyunlar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 main_right">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-cake-candles me-2"></i>
+                    <a href="">Bugün doğum günü olanlar</a>
+                </div>
+                <div class="card-body">
+                    <img src="" alt="" class="rounded-circle">
+                </div>
+            </div>
+
+
+
+            <div class="card mb-3">
+                <div class="card-header head">
+                    <i class="fas fa-users me-2"></i>
+                    <a href="#">Çevrimiçi üyeler</a>
+                </div>
+                <div class="card-body">
+                    <p>Şu anda çevrimiçi üye yok</p>
+                </div>
+                <div class="card-footer">
+                    <p style="font-size: 10px;">Toplam: 7 (Kullanıcı: 0, ziyaretçi: 7)</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="far fa-comment me-2"></i>
+                    <a href="#">Son mesajlar</a>
+                </div>
+                <div class="card-body">
+                    <img src="" alt="" class="rounded-circle me-2" style="width: 30px;">
+                    <a href="#">gamer laptop önerisi</a>
+                    <p class="mt-3">En son: hubege Dün 12:16 da</p>
+                    <a href="">Konu dışı</a>
+                </div>
+                <div class="card-body">
+                    <img src="" alt="" class="rounded-circle me-2" style="width: 30px;">
+                    <a href="#">gamer laptop önerisi</a>
+                    <p class="mt-3">En son: hubege Dün 12:16 da</p>
+                    <a href="">Konu dışı</a>
+                </div>
+                <div class="card-body">
+                    <img src="" alt="" class="rounded-circle me-2" style="width: 30px;">
+                    <a href="#">gamer laptop önerisi</a>
+                    <p class="mt-3">En son: hubege Dün 12:16 da</p>
+                    <a href="">Konu dışı</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-column me-2"></i>
+                    <p style="display: inline;"> Forum istatistikleri</p>
+                </div>
+                <div class="card-body">
+                    <ul class="p-0">
+                        <div class="d-flex justify-content-between">
+                            <li>Konular:</li>
+                            <li> 4,130</li>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <li>Mesajlar:</li>
+                            <li> 16,033</li>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <li>Kullanıcılar:</li>
+                            <li> 2016</li>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <li>Son üye:</li>
+                            <li> <a href="#">xroleplay</a></li>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- İnformation Bar -->
+
+<div class="container">
+
+    <div class="card information mb-5 ">
+        <div class="card-body">
+
+            <div class="container text-center text-md-start">
+
+                <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 row-cols-1">
+
+                    <div class="col d-flex justify-content-center align-items-center smokewhite shaking-icon">
+                        <div class="col-2 mt-2 me-2">
+                            <i class="fas fa-file-signature fa-2x"></i>
+                        </div>
+                        <div class="col-10 mt-4 ">
+                            <a href="#" class="line">
+                                <h6 class=" smokewhite fw-bold">
+                                    Şartlar ve Kurallar
+                                </h6>
+                            </a>
+                            <p>
+                                Forum kullanım kurallarımız.
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col d-flex justify-content-center align-items-center smokewhite shaking-icon">
+                        <div class="col-2 mt-2 me-2">
+                            <i class="fas fa-user-shield fa-2xl"></i>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <a href="#" class="line">
+                                <h6 class="smokewhite fw-bold">
+                                    Gizlilik Politikası
+                                </h6>
+                            </a>
+                            <p>
+                                Kişisel bilgi gizlilik detayları.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-center align-items-center smokewhite shaking-icon">
+                        <div class="col-2 mt-2 me-2">
+                            <i class="fas fa-life-ring fa-2xl"></i>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <a href="#" class="line">
+                                <h6 class="smokewhite fw-bold">
+                                    Yardım
+                                </h6>
+                            </a>
+                            <p>
+                                Forum kullanım klavuzu
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-center align-items-center smokewhite shaking-icon">
+                        <div class="col-2 mt-2 me-2">
+                            <i class="fas fa-envelope fa-2xl "></i>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <a href="#" class="line">
+                                <h6 class="smokewhite fw-bold">
+                                    Bize Ulaşın
+                                </h6>
+                            </a>
+                            <p>
+                                Forum yöneticilerine ulaş.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Grid row -->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock main %}
+
+
+{% block js %}
+<script>
+
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        margin: 25,
+        loop: true,
+        dots: false,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        smartSpeed: 4000,
+        responsive: {
+            0: {
+                items: 2
+            },
+
+            600: {
+                items: 2
+            },
+            767: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+
+</script>
+{% endblock js %}
